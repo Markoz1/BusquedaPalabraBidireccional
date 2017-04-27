@@ -101,32 +101,16 @@ public class Ventana extends JFrame {
 		return txtPalabra;
 	}
 
-	public void setTxtPalabra(JTextField txtPalabra) {
-		this.txtPalabra = txtPalabra;
-	}
-
 	public JButton getBtnBuscar() {
 		return btnBuscar;
-	}
-
-	public void setBtnBuscar(JButton btnBuscar) {
-		this.btnBuscar = btnBuscar;
 	}
 
 	public JTextArea getTxtrTexto() {
 		return txtrTexto;
 	}
 
-	public void setTxtrTexto(JTextArea txtrTexto) {
-		this.txtrTexto = txtrTexto;
-	}
-
 	public JButton getBtnLimpiar() {
 		return btnLimpiar;
-	}
-
-	public void setBtnLimpiar(JButton btnLimpiar) {
-		this.btnLimpiar = btnLimpiar;
 	}
 	
 }
