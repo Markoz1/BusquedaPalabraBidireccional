@@ -1,5 +1,5 @@
 package modelo;
-import java.
+
 
 public class Palabra {
 	private String cadena;
