@@ -11,4 +11,7 @@ public class Modelo {
 		boolean res = false;
 		return res;
 	}
+	public Texto getTexto() {
+		return texto;
+	}
 }

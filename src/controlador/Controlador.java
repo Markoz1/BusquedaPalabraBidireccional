@@ -41,6 +41,5 @@ public class Controlador implements ActionListener{
 		String texto = this.ventana.getTxtrTexto().getText();//recuperando el texto de la vista
 		System.out.println("se busaca la palabra "+palabra+"  en el texto "+texto);
 		return res;
-	}
-	
+	}	
 }

@@ -13,10 +13,13 @@ public class Texto {
 		String[] listaPalabras = t.split("[ \n\t\r,.;:!?(){}]");
 		
 		for (int i = 0; i < listaPalabras.length; i++) {
-			System.out.println(listaPalabras[i]);
+			//System.out.println(listaPalabras[i]);
 			Palabra palabra = new Palabra( listaPalabras[i] );
 			texto.insertar(palabra);
 		}
+	}
+	public ArbolBB getTexto() {
+		return texto;
 	}
 	
 	

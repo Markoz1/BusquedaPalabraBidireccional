@@ -1,6 +1,6 @@
 package modelo;
 
-public class ArbolBB {
+public class ArbolBB{
 	private Palabra raiz;
     private ArbolBB izq;
     private ArbolBB der;
@@ -15,16 +15,21 @@ public class ArbolBB {
     }
     public void insertar(Palabra x){
     	if(vacio()){
-            this.raiz = x;
+            raiz = x;
+            System.out.println("--Nodo--[-"+x.getCadena()+"-]");
             izq = new ArbolBB();
             der = new ArbolBB();
         }
         else{
-            if(x.comparar(this.raiz)){
-                izq.insertar(x);
+            if(x.getCadena().compareTo(raiz.getCadena()) < 0){
+                //System.out.println("comparando: "+x.getCadena()+" con "+raiz.getCadena()+" = "+x.getCadena().compareTo(raiz.getCadena()));
+                System.out.println("ruta: Izquierda ---> ");
+            	izq.insertar(x);
             }
             else{
-                der.insertar(x);
+            	//System.out.println("comparando: "+x.getCadena()+" con "+raiz.getCadena()+" = "+x.getCadena().compareTo(raiz.getCadena()));
+            	System.out.println("ruta: Derecha ---> ");
+            	der.insertar(x);
             }
         }
     }
