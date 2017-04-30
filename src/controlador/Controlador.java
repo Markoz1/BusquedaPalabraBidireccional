@@ -10,9 +10,9 @@ public class Controlador implements ActionListener{
 	private Modelo modelo;
 	private Ventana ventana;
 	
-	public Controlador(String t) {
+	public Controlador() {
 		super();
-		this.modelo = new Modelo(t);
+		this.modelo = new Modelo();
 		this.ventana = new Ventana();
 		setListeners();
 	}
@@ -25,6 +25,8 @@ public class Controlador implements ActionListener{
 		// TODO Auto-generated method stub
 		Object boton = event.getSource();		
 		if(boton == this.ventana.getBtnBuscar()){
+			//codigo q se ejecutara cuando se presione el boton buscar
+			insertarTextoModelo();
 			busquedaBidireccional();
 		}
 		else{
@@ -34,6 +36,12 @@ public class Controlador implements ActionListener{
 				this.ventana.getTxtPalabra().setText(null);
 			}
 		}
+	}
+	private void insertarTextoModelo() {
+		String text = this.ventana.getTxtrTexto().getText();
+		this.modelo.getTexto().setCadenaTexto(text);
+		this.modelo.getTexto().generarArbolTexto();
+		
 	}
 	public boolean busquedaBidireccional(){
 		boolean res = false;

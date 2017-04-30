@@ -2,13 +2,14 @@ package modelo;
 
 public class Texto {
 	private ArbolBB texto;
+	private String cadenaTexto;
 	public Texto() {
-		super();
-		// TODO Auto-generated constructor stub
+		this.texto = null;
+		this.cadenaTexto = null;
 	}
 	
-	public Texto(String t){
-		
+	public void generarArbolTexto(){
+		String t = this.cadenaTexto;
 		texto = new ArbolBB();
 		String[] listaPalabras = t.split("[ \n\t\r,.;:!?(){}]");
 		
@@ -21,6 +22,7 @@ public class Texto {
 	public ArbolBB getTexto() {
 		return texto;
 	}
-	
-	
+	public void setCadenaTexto(String cadenaTexto) {
+		this.cadenaTexto = cadenaTexto;
+	}	
 }

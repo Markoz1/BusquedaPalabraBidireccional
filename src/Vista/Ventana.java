@@ -74,11 +74,15 @@ public class Ventana extends JFrame {
 		txtPalabra.setColumns(10);
 		
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(170, 8, 89, 23);
+		btnBuscar.setBounds(184, 8, 89, 23);
 		panel.add(btnBuscar);
 		
+		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBounds(675, 8, 89, 23);
+		panel.add(btnLimpiar);
+		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 161, 774, 329);
+		panel_1.setBounds(10, 188, 774, 329);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -90,10 +94,6 @@ public class Ventana extends JFrame {
 		txtrTexto = new JTextArea();
 		txtrTexto.setBounds(10, 48, 754, 235);
 		panel_1.add(txtrTexto);
-		
-		btnLimpiar = new JButton("Limpiar");
-		btnLimpiar.setBounds(675, 294, 89, 23);
-		panel_1.add(btnLimpiar);
 		this.setVisible(true);
 	}
 

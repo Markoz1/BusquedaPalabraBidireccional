@@ -22,6 +22,7 @@ public class ArbolBB{
         }
         else{
             if(x.getCadena().compareTo(raiz.getCadena()) < 0){
+            	//comparacion de palabras y las ordena alfabeticamente
                 //System.out.println("comparando: "+x.getCadena()+" con "+raiz.getCadena()+" = "+x.getCadena().compareTo(raiz.getCadena()));
                 System.out.println("ruta: Izquierda ---> ");
             	izq.insertar(x);

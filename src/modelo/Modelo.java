@@ -3,9 +3,9 @@ package modelo;
 public class Modelo {
 	private Texto texto;
 
-	public Modelo(String t) {
+	public Modelo() {
 		super();
-		this.texto = new Texto(t);
+		this.texto = new Texto();
 	}
 	public boolean busquedaBidireccional(){
 		boolean res = false;
