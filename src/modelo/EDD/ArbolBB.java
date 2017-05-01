@@ -118,6 +118,26 @@ public class ArbolBB {
             }
         }
     }
+    public void InsertarAmplitud(Palabra x){
+    	boolean inserto = false;
+        Cola <ArbolBB> q = new Cola <ArbolBB>();
+        ArbolBB a1;
+        q.insert(this);
+        System.out.println(q.empty());
+        while(!q.empty() && !inserto){
+        	a1 = q.remove();
+        	if(a1.vacio()){
+        		inserto = true;
+        		a1.raiz = x;
+        		a1.izq = new ArbolBB();
+        		a1.der = new ArbolBB();
+        	}
+        	else{
+        		q.insert(a1.izq);
+        		q.insert(a1.der);
+        	}
+        }
+    }
     /*
      * Recorrido preOrden de un arbol normal
      */

@@ -21,7 +21,7 @@ public class Texto {
 		for (int i = 0; i < listaPalabras.length; i++) {
 			Palabra palabra = new Palabra( listaPalabras[i] );
 			pila.push(palabra);
-			this.textoA.insertar(palabra);
+			this.textoA.InsertarAmplitud(palabra);
 		}
 		System.out.println("******** Fin Arbol A *********");
 		System.out.println("******** Ini Arbol B *********");
