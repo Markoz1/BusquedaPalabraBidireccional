@@ -1,4 +1,4 @@
-package modelo;
+package modelo.EDD;
 
 public class Cola<E> { 
 	

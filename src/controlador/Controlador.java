@@ -40,7 +40,12 @@ public class Controlador implements ActionListener{
 	private void insertarTextoModelo() {
 		String text = this.ventana.getTxtrTexto().getText();
 		this.modelo.getTexto().setCadenaTexto(text);
-		this.modelo.getTexto().generarArbolTexto();
+		System.out.println("--Contruyendo Arboles--");
+		this.modelo.getTexto().generarArboles();
+		System.out.println("--Recorriendo Arbol A por Amplitud--");
+		this.modelo.getTexto().getTextoA().recorridoAmplitud();
+		System.out.println("--Recorriendo Arbol B por profundidad--");
+		this.modelo.getTexto().getTextoB().recorridoProfundidad();
 		
 	}
 	public boolean busquedaBidireccional(){

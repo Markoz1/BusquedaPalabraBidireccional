@@ -1,26 +1,40 @@
 package modelo;
 
+import modelo.EDD.ArbolBB;
+import modelo.EDD.Pila;
+
 public class Texto {
-	private ArbolBB texto;
+	private ArbolBB textoA;//arbol ordenado de nodoInicio a NodoFin
+	private ArbolBB textoB;//arbol ordenado de nodoFin a nodoInicio 
 	private String cadenaTexto;
 	public Texto() {
-		this.texto = null;
+		this.textoA = new ArbolBB();
+		this.textoB = new ArbolBB();
 		this.cadenaTexto = null;
 	}
 	
-	public void generarArbolTexto(){
+	public void generarArboles(){
+		Pila<Palabra> pila = new Pila<Palabra>();
 		String t = this.cadenaTexto;
-		texto = new ArbolBB();
 		String[] listaPalabras = t.split("[ \n\t\r,.;:!?(){}]");
-		
+		System.out.println("******** Ini Arbol A *********");
 		for (int i = 0; i < listaPalabras.length; i++) {
-			//System.out.println(listaPalabras[i]);
 			Palabra palabra = new Palabra( listaPalabras[i] );
-			texto.insertar(palabra);
+			pila.push(palabra);
+			this.textoA.insertar(palabra);
 		}
+		System.out.println("******** Fin Arbol A *********");
+		System.out.println("******** Ini Arbol B *********");
+		for (int i = 0; i < listaPalabras.length; i++) {
+			this.textoB.insertar(pila.pop());
+		}
+		System.out.println("******** Fin Arbol B *********");
 	}
-	public ArbolBB getTexto() {
-		return texto;
+	public ArbolBB getTextoA() {
+		return textoA;
+	}
+	public ArbolBB getTextoB() {
+		return textoB;
 	}
 	public void setCadenaTexto(String cadenaTexto) {
 		this.cadenaTexto = cadenaTexto;
