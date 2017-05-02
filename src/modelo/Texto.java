@@ -17,18 +17,14 @@ public class Texto {
 		Pila<Palabra> pila = new Pila<Palabra>();
 		String t = this.cadenaTexto;
 		String[] listaPalabras = t.split("[ \n\t\r,.;:!?(){}]");
-		System.out.println("******** Ini Arbol A *********");
 		for (int i = 0; i < listaPalabras.length; i++) {
 			Palabra palabra = new Palabra( listaPalabras[i] );
 			pila.push(palabra);
 			this.textoA.InsertarAmplitud(palabra);
 		}
-		System.out.println("******** Fin Arbol A *********");
-		System.out.println("******** Ini Arbol B *********");
 		for (int i = 0; i < listaPalabras.length; i++) {
-			this.textoB.insertar(pila.pop());
+			this.textoB.InsertarAmplitud(pila.pop());
 		}
-		System.out.println("******** Fin Arbol B *********");
 	}
 	public ArbolBB getTextoA() {
 		return textoA;

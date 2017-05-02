@@ -41,7 +41,25 @@ public class ArbolBB {
             }
         }
     }
-    
+    public void InsertarAmplitud(Palabra x){
+    	boolean inserto = false;
+        Cola <ArbolBB> q = new Cola <ArbolBB>();
+        ArbolBB a1;
+        q.insert(this);
+        while(!q.empty() && !inserto){
+        	a1 = q.remove();
+        	if(a1.vacio()){
+        		inserto = true;
+        		a1.raiz = x;
+        		a1.izq = new ArbolBB();
+        		a1.der = new ArbolBB();
+        	}
+        	else{
+        		q.insert(a1.izq);
+        		q.insert(a1.der);
+        	}
+        }
+    }    
     public ArrayList<Palabra> getNodosNivel(int nivel){
     	nodosNivel = null;
     	
@@ -59,7 +77,9 @@ public class ArbolBB {
     public void nodosNivel( int nivel ){
     	
     }
-    
+    public Palabra getRaiz() {
+		return raiz;
+	}
     public ArbolBB getIzq(){
     	return izq;
     }
@@ -68,34 +88,6 @@ public class ArbolBB {
     	return der;
     }
     
-    public void busquedaAmplitud(){
-//    	Queue<ArbolBB> colaP = new LinkedList();
-//    	ArbolBB aux;
-//    	
-//    	if (!vacio()) {
-//			
-//    		System.out.println(raiz.getCadena());
-//        	
-//        	if(!izq.vacio())
-//                colaP.add(izq);
-//            if (!der.vacio())
-//                colaP.add(der);
-//        	
-//        	while (!colaP.isEmpty()) {
-//    			aux = colaP.remove();
-//    			System.out.println(aux.raiz.getCadena());
-//    		 
-//    	   		 if (!izq.vacio()) {
-//    					
-//    	   			 colaP.add(aux.izq);
-//    				}
-//    	   		 
-//    	   		 if (!der.vacio()) {
-//    					colaP.add(aux.der);
-//    			}	
-//    		}
-//		}	
-    }
     /*
      * Recorrido por niveles utilizando una cola
      */
@@ -118,46 +110,20 @@ public class ArbolBB {
             }
         }
     }
-    public void InsertarAmplitud(Palabra x){
-    	boolean inserto = false;
-        Cola <ArbolBB> q = new Cola <ArbolBB>();
-        ArbolBB a1;
-        q.insert(this);
-        System.out.println(q.empty());
-        while(!q.empty() && !inserto){
-        	a1 = q.remove();
-        	if(a1.vacio()){
-        		inserto = true;
-        		a1.raiz = x;
-        		a1.izq = new ArbolBB();
-        		a1.der = new ArbolBB();
-        	}
-        	else{
-        		q.insert(a1.izq);
-        		q.insert(a1.der);
-        	}
-        }
-    }
     /*
      * Recorrido preOrden de un arbol normal
      */
     public void recorridoProfundidad(){
-    	if(!vacio()){
-    		System.out.println(raiz.getCadena());
-    		izq.recorridoProfundidad();
-    		der.recorridoProfundidad();
-    	}
-    }
-    public static void main(String[] args) {
-//		 ArbolBB prueba = new ArbolBB();
-//		 String texto = "Enseguida se muestra un programa ejemplo de la utilización";
-//		 String[] listaPalabras = texto.split("[ \n\t\r,.;:!?(){}]");
-//			
-//			for (int i = 0; i < listaPalabras.length; i++) {
-//				Palabra palabra = new Palabra( listaPalabras[i] );
-//				prueba.insertar(palabra);
-//			}
-//		prueba.recorridoAmplitud();
-	}
-    
+    	Pila <ArbolBB> p = new Pila <ArbolBB>();
+        ArbolBB a1;
+        p.push(this);
+        while (!p.empty()){
+            a1=p.pop();
+            System.out.println(a1.raiz.getCadena());
+            if(!a1.der.vacio())
+                p.push(a1.der);
+            if (!a1.izq.vacio())
+            	p.push(a1.izq);
+        }
+    }    
 }

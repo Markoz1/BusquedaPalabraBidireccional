@@ -14,14 +14,22 @@ import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.JEditorPane;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class Ventana extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtPalabra;
 	private JButton btnBuscar;
-	private JTextArea txtrTexto;
 	private JButton btnLimpiar;
+	private JTextPane textPane;
+	private JTextArea textArea;
+	private JTextPane textPane_1;
 
 	/**
 	 * Launch the application.
@@ -51,14 +59,14 @@ public class Ventana extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Busqueda de Palabra");
+		JLabel lblNewLabel = new JLabel("Busqueda Bidireccional de Palabra");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel.setBounds(10, 11, 774, 49);
 		contentPane.add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 71, 774, 49);
+		panel.setBounds(10, 100, 774, 49);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -69,12 +77,12 @@ public class Ventana extends JFrame {
 		
 		txtPalabra = new JTextField();
 		txtPalabra.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		txtPalabra.setBounds(74, 8, 86, 20);
+		txtPalabra.setBounds(74, 8, 100, 20);
 		panel.add(txtPalabra);
 		txtPalabra.setColumns(10);
 		
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(184, 8, 89, 23);
+		btnBuscar.setBounds(203, 8, 89, 23);
 		panel.add(btnBuscar);
 		
 		btnLimpiar = new JButton("Limpiar");
@@ -82,7 +90,7 @@ public class Ventana extends JFrame {
 		panel.add(btnLimpiar);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 188, 774, 329);
+		panel_1.setBounds(10, 188, 774, 161);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -91,10 +99,39 @@ public class Ventana extends JFrame {
 		lblEscribaUnTexto.setBounds(10, 11, 381, 14);
 		panel_1.add(lblEscribaUnTexto);
 		
-		txtrTexto = new JTextArea();
-		txtrTexto.setBounds(10, 48, 754, 235);
-		panel_1.add(txtrTexto);
-		this.setVisible(true);
+		textArea = new JTextArea();
+		textArea.setBounds(10, 36, 754, 114);
+		panel_1.add(textArea);
+		
+		JPanel panel_2 = new JPanel();
+		contentPane.add(panel_2);
+		panel_2.setBounds(41, 360, 700, 200);
+		
+		panel_2.setLayout(null);
+		
+		JLabel lblArbolRaizmeta = new JLabel("Arbol Raiz-Meta");
+		lblArbolRaizmeta.setForeground(Color.RED);
+		lblArbolRaizmeta.setBounds(99, 11, 104, 18);
+		panel_2.add(lblArbolRaizmeta);
+		
+		textPane = new JTextPane();
+		textPane.setEditable(false);
+		panel_2.add(textPane);
+		textPane.setEnabled(false);
+		textPane.setContentType("text/html");
+		textPane.setBounds(10, 40, 264, 149);
+		
+		textPane_1 = new JTextPane();
+		textPane_1.setEditable(false);
+		textPane_1.setEnabled(false);
+		textPane_1.setContentType("text/html");
+		textPane_1.setBounds(426, 40, 264, 149);
+		panel_2.add(textPane_1);
+		
+		JLabel lblArbolMetaraiz = new JLabel("Arbol Meta-Raiz");
+		lblArbolMetaraiz.setForeground(Color.BLUE);
+		lblArbolMetaraiz.setBounds(518, 11, 104, 18);
+		panel_2.add(lblArbolMetaraiz);
 	}
 
 	public JTextField getTxtPalabra() {
@@ -105,12 +142,17 @@ public class Ventana extends JFrame {
 		return btnBuscar;
 	}
 
-	public JTextArea getTxtrTexto() {
-		return txtrTexto;
+	public JTextPane getTextPane() {
+		return textPane;
 	}
 
 	public JButton getBtnLimpiar() {
 		return btnLimpiar;
 	}
-	
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+	public JTextPane getTextPane_1() {
+		return textPane_1;
+	}
 }
